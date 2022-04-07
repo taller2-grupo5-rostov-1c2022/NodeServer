@@ -1,6 +1,6 @@
 version: "3.5"
 services:
-  nzu-nodeserver:
+  rostov-nodeserver:
     build:
       context: ../
       dockerfile: docker/Dockerfile
