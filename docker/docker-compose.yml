@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  nzu-nodeserver:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - ${PORT}:${PORT}
+      # This HAS to be 8080, because $PORT is not passed to the container
+      # Could use a rather use an .env file to set it
