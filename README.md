@@ -39,6 +39,8 @@ You'll need to set the following actions secrets:
 
 The pipeline deploys the server automatically on pushing to **master**
 
+You should create the app on heroku first
+
 You'll need to set the following actions secrets:
 
 - `HEROKU_NAME`: App name
