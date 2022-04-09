@@ -2,6 +2,27 @@
 
 # Node Server
 
+## Set Up
+
+### Node 16
+
+##### Using [Node Version Manager](https://github.com/nvm-sh/nvm)
+
+```
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+$ nvm install 16
+```
+
+##### Just Node
+
+Download and run the installer from [nodejs.org](https://nodejs.org)
+
+### Dependencies
+
+```
+npm i
+```
+
 ## Running the server
 
 - Development: `npm run dev`
