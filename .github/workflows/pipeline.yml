@@ -74,7 +74,7 @@ jobs:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
         uses: akhileshns/heroku-deploy@v3.12.12
         env:
-          API_KEY: ${{secrets.API_KEY}}
+          HD_API_KEY: ${{secrets.API_KEY}}
         with:
           usedocker: true
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
