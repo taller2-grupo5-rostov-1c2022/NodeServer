@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import api_keys_middleware from "./api_key.js";
 
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
@@ -15,6 +16,7 @@ const port = process.env.PORT || 8080;
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
   swaggerDefinition: {
+    openapi: "3.0.1",
     info: {
       version: process.env.npm_package_version,
       title: "Customer API",
@@ -23,6 +25,11 @@ const swaggerOptions = {
         name: "Contact Name",
       },
       servers: [`http://localhost:${port}`],
+    },
+    components: {
+      securitySchemes: {
+        ApiKeyAuth: { type: "apiKey", in: "header", name: "api_key" },
+      },
     },
   },
   apis: ["src/routes/*.js"],
@@ -36,6 +43,7 @@ app.set("json spaces", 2);
 
 // Middleware
 app.use(express.json());
+app.use(api_keys_middleware);
 
 // Routes
 app.use("/api/service", service_routes);
@@ -43,7 +51,7 @@ app.use("/api", util_routes);
 
 // Server
 const server = app.listen(port, () => {
-  console.log(`Server on port ${port}`);
+  console.log(`Server on port ${port}\n API_KEY=${process.env.API_KEY}`);
 });
 
 export { app, server };

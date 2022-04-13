@@ -7,16 +7,25 @@ const router = Router();
  * /api/service/:
  *  get:
  *    description: Use to request all services
+ *    parameters:
+ *      - in: query
+ *        name: message
+ *        description: The message to send.
+ *        type: string
  *    responses:
  *      200:
  *        description: Success
  *      500:
  *        description: Server Error
+ *    security:
+ *      - ApiKeyAuth: []
  */
 router.get("/", async (req, res) => {
-  res.status(500).json({
+  const message = req.query.message;
+
+  res.json({
     data: {
-      message: "Pending Implementation",
+      message,
     },
   });
 });
