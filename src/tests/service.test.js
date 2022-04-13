@@ -1,6 +1,8 @@
 import supertest from "supertest";
 import { app, server } from "../index";
 
+process.env.API_KEY = "test_key";
+
 const api = supertest(app);
 
 test("should be unauthorized", async () => {
