@@ -67,6 +67,7 @@ You'll need to set the following actions secrets:
 - `HEROKU_NAME`: App name
 - `HEROKU_EMAIL`: Account email
 - `HEROKU_API_KEY`: Account API key
+- `API_KEY`: This app's api-key, needed to make requests
 
 ##### Generating API Key
 
